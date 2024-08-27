@@ -4,14 +4,19 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "npx netlify-lambda serve src",
+    "build" : "npx netlify-lambda build src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "nodemon": "^3.1.4"
+    "netlify-lambda": "^2.0.16",
+    "nodemon": "^3.1.4",
+    "serverless-http": "^3.2.0"
   }
 }

@@ -3,12 +3,15 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 app.get('/', function(req, res){
     const today = new Date();
+    const now = new Date();
     if (today.getDay()===6 || today.getDay()===0){
-        res.send("It is the weekend");
+        res.render('list', {day : today.getDay(), now});
     } else {
-        res.sendFile(__dirname +'/index.html');
+        res.render('list', {day : today.getDay(), now});
     }
 });
 
