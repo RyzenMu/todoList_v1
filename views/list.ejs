@@ -6,6 +6,11 @@
     <title>Todo List</title>
 </head>
 <body>
+    <% if (day === 2 || day ===3){ %>
+        <h1 style="color:purple">Todo List</h1>
+    <% } else { %>
+        <h1 style="color: blue;">Dont Worry</h1>
+    <% } %>
     <h1>Now is <%= now %></h1>
     <h1>Its a <%= day %></h1>
 </body>
