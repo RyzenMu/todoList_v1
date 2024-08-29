@@ -4,6 +4,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 
 let items = [];
+let workItems =[];
 
 app.set('view engine', 'ejs');
 
@@ -39,8 +40,27 @@ app.post('/', function(req, res){
     items.push(item);
     // res.render('list', {item : true, method :'post', itemn});
     console.log(req.body.itemName);
-    res.redirect("/");
+    if (req.body.list === "work"){
+        workItems.push(item)
+        res.redirect("/work");
+    } else {
+        items.push(item);
+        res.redirect("/");
+    }
     
+});
+
+app.get('/work', function(req, res){
+    res.render('list', {
+        listTitle : "work list",
+        newListItems : workItems,
+    })
+});
+
+app.post("/work", function(req, res){
+    let item = req.body.item;
+    workItems.push(item);
+    res.redirect('/work');
 })
 
 app.listen(8000, function(req, res){
