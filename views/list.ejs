@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <% if (day === 2 || day ===3){ %>
-        <h1 style="color:purple">Todo List</h1>
-    <% } else { %>
-        <h1 style="color: blue;">Dont Worry</h1>
-    <% } %>
-    <h1>Now is <%= now %></h1>
-    <h1>Its a <%= day %></h1>
+ 
+    <h1>todo List</h1>
+    <ul>
+        <li>buy food</li>
+        <li>cook food</li>
+        <li>eat food</li>
+        <% for (ite in items) { %>
+        <li><%= items[ite] %></li>
+        <% } %>
+       
+     
+    </ul>
+    <form action="" method="post">
+        <label for="">Add item</label>
+        <input type="text" name="itemName">
+        <button type="submit">Add</button>
+    </form>
+    <h1>checking...</h1>
 </body>
 </html>
